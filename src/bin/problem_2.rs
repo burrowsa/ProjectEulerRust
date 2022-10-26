@@ -1,16 +1,11 @@
 use project_euler_solutions::series::fib::fibonacci;
 
 fn brute_force(mx: u64) -> u64 {
-    let mut sum = 0;
-    for i in fibonacci().skip(2) {
-        if i > mx {
-            break;
-        }
-        if i % 2 == 0 {
-            sum += i;
-        }
-    }
-    return sum;
+    return fibonacci::<u64>()
+        .skip(2)
+        .take_while(|i| i <= &mx)
+        .filter(|i| i % 2 == 0)
+        .sum();
 }
 
 struct EvenFibonacci {
@@ -36,16 +31,9 @@ fn even_fibonacci() -> EvenFibonacci {
 }
 
 fn three_times_faster(mx: u64) -> u64 {
-    let mut sum = 0;
-    for i in even_fibonacci().skip(1) {
-        if i > mx {
-            break;
-        }
-        if i % 2 == 0 {
-            sum += i;
-        }
-    }
-    return sum;
+    return even_fibonacci()
+    .take_while(|i| i <= &mx)
+    .sum();
 }
 
 fn main() {

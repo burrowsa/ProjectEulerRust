@@ -1,21 +1,27 @@
-pub struct Fibonacci {
-    curr: u64,
-    next: u64,
+use num::{Zero, One};
+use num_traits::{NumAssign};
+
+pub struct Fibonacci<T> {
+    curr: T,
+    next: T,
 }
 
-impl Iterator for Fibonacci {
-    type Item = u64;
+impl<T:NumAssign + Clone> Iterator for Fibonacci<T> {
+    type Item = T;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let current = self.curr;
+        let current = self.curr.clone();
 
-        self.curr = self.next;
-        self.next = current + self.next;
+        self.curr = self.next.clone();
+        self.next += current.clone();
 
         Some(current)
     }
 }
 
-pub fn fibonacci() -> Fibonacci {
-    Fibonacci { curr: 0, next: 1 }
+pub fn fibonacci<T: Zero + One>() -> Fibonacci<T> {
+    Fibonacci {
+        curr: T::zero(),
+        next: T::one(),
+    }
 }
