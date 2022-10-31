@@ -31,8 +31,8 @@ fn main() {
         num_remarkable_primes(-79, 1601)
     );
 
-    let ((a, b), primes) = (-999..1000)
-        .cartesian_product(-1000..1001)
+    let ((a, b), primes) = (-999..=999)
+        .cartesian_product(-1000..=1000)
         .map(|(a, b)| ((a, b), num_remarkable_primes(a, b)))
         .max_by(|(_, primes1), (_, primes2)| primes1.cmp(primes2))
         .unwrap();

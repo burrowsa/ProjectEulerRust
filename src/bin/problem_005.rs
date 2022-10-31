@@ -30,7 +30,7 @@ fn merge_primes(p1: &mut HashMap<i64, i64>, p2: HashMap<i64, i64>) {
 fn simplify(n: i64) -> Vec<i64> {
     let mut primes = HashMap::new();
 
-    for i in 1..(n + 1) {
+    for i in 1..=n {
         let i_primes = totup_primes(i);
         merge_primes(&mut primes, i_primes);
     }

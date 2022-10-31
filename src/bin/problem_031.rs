@@ -7,7 +7,7 @@ fn number_of_ways_to_make(n: usize) -> u32 {
         if !READY {
             WAYS[0] = 1;
             for coin in COINS {
-                for i in coin..201 {
+                for i in coin..=200 {
                     WAYS[i] += WAYS[i - coin];
                 }
             }

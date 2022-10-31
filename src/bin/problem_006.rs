@@ -4,7 +4,7 @@ use project_euler_solutions::series::ap::sum_n_terms_ap;
 fn brute_force(n: i64) {
     let mut sum_nums = 0;
     let mut sum_sqs = 0;
-    for i in 1..(n + 1) {
+    for i in 1..=n {
         sum_nums += i;
         sum_sqs += i * i;
     }

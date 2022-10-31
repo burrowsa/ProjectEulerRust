@@ -41,7 +41,7 @@ fn combined_factors(numbers: &[i64]) -> HashSet<i64> {
 
     let simplified = remove_multiples(numbers);
 
-    for i in 1..(simplified.len() + 1) {
+    for i in 1..=simplified.len() {
         for c in simplified.iter().combinations(i) {
             let mut product = -1;
             for j in c {
