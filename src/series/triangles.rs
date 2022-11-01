@@ -1,10 +1,10 @@
 pub struct Triangles {
-    i: i64,
-    s: i64,
+    i: u32,
+    s: u32,
 }
 
 impl Iterator for Triangles {
-    type Item = i64;
+    type Item = u32;
 
     fn next(&mut self) -> Option<Self::Item> {
         self.i += 1;

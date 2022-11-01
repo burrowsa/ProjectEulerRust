@@ -1,4 +1,4 @@
-fn _int_to_words(x: i64) -> String {
+fn _int_to_words(x: usize) -> String {
     let mut result: Vec<String> = vec![];
     let thousands = x / 1000;
     if thousands > 0 {
@@ -36,7 +36,7 @@ fn _int_to_words(x: i64) -> String {
     return result.join("");
 }
 
-pub fn int_to_words(x: i64) -> String {
+pub fn int_to_words(x: usize) -> String {
     return match x {
         1 => String::from("one"),
         2 => String::from("two"),

@@ -1,3 +1,5 @@
+use std::{iter::Sum, str::FromStr, fmt::Debug};
+
 pub struct Digits {
     i: u64,
 }
@@ -20,10 +22,14 @@ pub fn digits(i: u64) -> Digits {
     Digits { i }
 }
 
-pub fn sum_digits<T: ToString>(i: T) -> i64 {
+pub fn sum_digits<T, O>(i: T) -> O 
+where
+T: ToString,
+O: Sum<O> + FromStr, <O as FromStr>::Err: Debug
+ {
     return i
         .to_string()
         .chars()
-        .map(|x| x.to_string().parse::<i64>().unwrap())
-        .sum::<i64>();
+        .map(|x| x.to_string().parse::<O>().unwrap())
+        .sum::<O>();
 }

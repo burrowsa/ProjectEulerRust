@@ -1,7 +1,24 @@
 use project_euler_solutions::tri;
 use project_euler_solutions::triangle_path::{max_sum_through_triangle, Triangle};
 
-fn main() {
+// Maximum path sum II
+// By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+//
+//         3
+//        7 4
+//       2 4 6
+//      8 5 9 3
+//
+// That is, 3 + 7 + 4 + 9 = 23.
+// 
+// Find the maximum total from top to bottom in triangle.txt (right click and 'Save Link/Target As...'), a 15K text file containing a triangle
+// with one-hundred rows.
+//
+// NOTE: This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem, as there are 299 
+// altogether! If you could check one trillion (1012) routes every second it would take over twenty billion years to check them all. There is 
+// an efficient algorithm to solve it. ;o)
+
+fn problem_067() -> i64 {
     let triangle = tri![
                                                                                                                                                                                                               59;
                                                                                                                                                                                                             73, 41;
@@ -105,5 +122,20 @@ fn main() {
         23, 33, 44, 81, 80, 92, 93, 75, 94, 88, 23, 61, 39, 76, 22, 03, 28, 94, 32, 06, 49, 65, 41, 34, 18, 23, 08, 47, 62, 60, 03, 63, 33, 13, 80, 52, 31, 54, 73, 43, 70, 26, 16, 69, 57, 87, 83, 31, 03, 93, 70, 81, 47, 95, 77, 44, 29, 68, 39, 51, 56, 59, 63, 07, 25, 70, 07, 77, 43, 53, 64, 03, 94, 42, 95, 39, 18, 01, 66, 21, 16, 97, 20, 50, 90, 16, 70, 10, 95, 69, 29, 06, 25, 61, 41, 26, 15, 59, 63, 35];
 
     let t = Triangle::new(&triangle);
-    println!("{}", max_sum_through_triangle(t));
+    max_sum_through_triangle(t)
+}
+
+fn main() {
+    println!("{}", problem_067());
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::problem_067;
+
+    #[test]
+    fn test_problem_067() {
+        let result = problem_067();
+        assert_eq!(result, 7273);
+    }
 }

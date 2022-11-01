@@ -1,10 +1,10 @@
 pub struct Collatz {
-    next: i64,
+    next: usize,
     stop: bool,
 }
 
 impl Iterator for Collatz {
-    type Item = i64;
+    type Item = usize;
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.stop {
@@ -25,7 +25,7 @@ impl Iterator for Collatz {
     }
 }
 
-pub fn collatz(start: i64) -> Collatz {
+pub fn collatz(start: usize) -> Collatz {
     Collatz {
         next: start,
         stop: false,

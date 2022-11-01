@@ -1,3 +1,9 @@
-pub fn sum_n_terms_ap(n: i64, a: i64, d: i64) -> i64 {
-    return n * (2 * a + (n - 1) * d) / 2;
+use num_traits::NumOps;
+use num_traits::identities::One;
+
+pub fn sum_n_terms_ap<T>(n: &T, a: &T, d: &T) -> T
+where
+    T: NumOps + One + Copy
+{
+    return (*n) * ((T::one() + T::one()) * (*a) + ((*n) - T::one()) * (*d)) / (T::one() + T::one());
 }
