@@ -3,6 +3,15 @@ use std::cmp::max;
 use std::collections::HashMap;
 use std::rc::Rc;
 
+#[macro_export]
+macro_rules! tri {
+    ($($($x:expr),*);*) => {[
+        $(
+            &[$($x,)*][..],
+        )*
+    ]};
+}
+
 pub struct Triangle<'a> {
     tree: &'a [&'a [i64]],
     i_offset: usize,
