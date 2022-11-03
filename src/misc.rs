@@ -38,52 +38,21 @@ where
 #[cfg(test)]
 mod tests {
     use super::{digits, sum_digits};
+    use test_case::test_case;
 
-    #[test]
-    fn digits_0() {
-        let items: Vec<u64> = digits(0).collect();
-        assert_eq!(items, vec![])
+    #[test_case(0, vec![] ; "0")]
+    #[test_case(1, vec![1] ; "1")]
+    #[test_case(123, vec![3,2,1] ; "123")]
+    #[test_case(105, vec![5,0,1] ; "105")]
+    fn test_digits(i: u64, expected: Vec<u64>) {
+        assert_eq!(digits(i).collect::<Vec<u64>>(), expected)
     }
 
-    #[test]
-    fn digits_1() {
-        let items: Vec<u64> = digits(1).collect();
-        assert_eq!(items, vec![1])
-    }
-
-    #[test]
-    fn digits_123() {
-        let items: Vec<u64> = digits(123).collect();
-        assert_eq!(items, vec![3, 2, 1])
-    }
-
-    #[test]
-    fn digits_105() {
-        let items: Vec<u64> = digits(105).collect();
-        assert_eq!(items, vec![5, 0, 1])
-    }
-
-    #[test]
-    fn sum_digits_0() {
-        let items: u64 = sum_digits(0);
-        assert_eq!(items, 0)
-    }
-
-    #[test]
-    fn sum_digits_1() {
-        let items: u64 = sum_digits(1);
-        assert_eq!(items, 1)
-    }
-
-    #[test]
-    fn sum_digits_123() {
-        let items: u64 = sum_digits(123);
-        assert_eq!(items, 6)
-    }
-
-    #[test]
-    fn sum_digits_105() {
-        let items: u64 = sum_digits(105);
-        assert_eq!(items, 6)
+    #[test_case(0, 0 ; "0")]
+    #[test_case(1, 1 ; "1")]
+    #[test_case(123, 6 ; "123")]
+    #[test_case(105, 6 ; "105")]
+    fn test_sum_digits(i: u64, expected: u64) {
+        assert_eq!(sum_digits::<u64, u64>(i), expected)
     }
 }

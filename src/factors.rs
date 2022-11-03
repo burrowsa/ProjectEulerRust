@@ -59,58 +59,23 @@ pub fn is_abundant(n: &u64) -> bool {
 #[cfg(test)]
 mod tests {
     use super::{factors, is_prime};
+    use test_case::test_case;
 
-    #[test]
-    fn factors_1() {
-        let items: Vec<(u64, u64)> = factors(&1).collect();
-        assert_eq!(items, vec![(1, 1)])
+    #[test_case(1, vec![(1, 1)]; "1")]
+    #[test_case(2, vec![(1, 2)]; "2")]
+    #[test_case(4, vec![(1, 4), (2, 2)]; "4")]
+    #[test_case(16, vec![(1, 16), (2, 8), (4, 4)]; "16")]
+    fn test_factors(i: u64, expected: Vec<(u64, u64)>) {
+        assert_eq!(factors(&i).collect::<Vec<(u64, u64)>>(), expected)
     }
 
-    #[test]
-    fn factors_2() {
-        let items: Vec<(u64, u64)> = factors(&2).collect();
-        assert_eq!(items, vec![(1, 2)])
-    }
-
-    #[test]
-    fn factors_4() {
-        let items: Vec<(u64, u64)> = factors(&4).collect();
-        assert_eq!(items, vec![(1, 4), (2, 2)])
-    }
-
-    #[test]
-    fn factors_16() {
-        let items: Vec<(u64, u64)> = factors(&16).collect();
-        assert_eq!(items, vec![(1, 16), (2, 8), (4, 4)])
-    }
-
-    #[test]
-    fn is_prime_1() {
-        assert_eq!(is_prime(&1), false)
-    }
-
-    #[test]
-    fn is_prime_2() {
-        assert_eq!(is_prime(&2), true)
-    }
-
-    #[test]
-    fn is_prime_3() {
-        assert_eq!(is_prime(&3), true)
-    }
-
-    #[test]
-    fn is_prime_4() {
-        assert_eq!(is_prime(&4), false)
-    }
-
-    #[test]
-    fn is_prime_5() {
-        assert_eq!(is_prime(&5), true)
-    }
-
-    #[test]
-    fn is_prime_6() {
-        assert_eq!(is_prime(&6), false)
+    #[test_case(1, false ; "1")]
+    #[test_case(2, true ; "2")]
+    #[test_case(3, true ; "3")]
+    #[test_case(4, false ; "4")]
+    #[test_case(5, true ; "5")]
+    #[test_case(6, false ; "6")]
+    fn test_is_prime(i: u64, expected: bool) {
+        assert_eq!(is_prime(&i), expected)
     }
 }
