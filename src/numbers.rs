@@ -38,6 +38,7 @@ fn _int_to_words(x: usize) -> String {
 
 pub fn int_to_words(x: usize) -> String {
     return match x {
+        0 => String::from("zero"),
         1 => String::from("one"),
         2 => String::from("two"),
         3 => String::from("three"),
@@ -67,4 +68,105 @@ pub fn int_to_words(x: usize) -> String {
         90 => String::from("ninety"),
         other => _int_to_words(other),
     };
+}
+
+#[cfg(test)]
+mod tests {
+    use super::int_to_words;
+
+    #[test]
+    fn zero() {
+        let items: String = int_to_words(0);
+        assert_eq!(items, "zero")
+    }
+
+    #[test]
+    fn one() {
+        let items: String = int_to_words(1);
+        assert_eq!(items, "one")
+    }
+
+    #[test]
+    fn two() {
+        let items: String = int_to_words(2);
+        assert_eq!(items, "two")
+    }
+
+    #[test]
+    fn three() {
+        let items: String = int_to_words(3);
+        assert_eq!(items, "three")
+    }
+
+    #[test]
+    fn ten() {
+        let items: String = int_to_words(10);
+        assert_eq!(items, "ten")
+    }
+
+    #[test]
+    fn eleven() {
+        let items: String = int_to_words(11);
+        assert_eq!(items, "eleven")
+    }
+
+    #[test]
+    fn fifteen() {
+        let items: String = int_to_words(15);
+        assert_eq!(items, "fifteen")
+    }
+
+    #[test]
+    fn twenty() {
+        let items: String = int_to_words(20);
+        assert_eq!(items, "twenty")
+    }
+
+    #[test]
+    fn twenty_one() {
+        let items: String = int_to_words(21);
+        assert_eq!(items, "twenty-one")
+    }
+
+    #[test]
+    fn twenty_five() {
+        let items: String = int_to_words(25);
+        assert_eq!(items, "twenty-five")
+    }
+
+    #[test]
+    fn fifty() {
+        let items: String = int_to_words(50);
+        assert_eq!(items, "fifty")
+    }
+
+    #[test]
+    fn one_hundred() {
+        let items: String = int_to_words(100);
+        assert_eq!(items, "one hundred")
+    }
+
+    #[test]
+    fn one_hundred_and_six() {
+        let items: String = int_to_words(106);
+        assert_eq!(items, "one hundred and six")
+    }
+
+    #[test]
+    fn one_hundred_sixty_seven() {
+        let items: String = int_to_words(167);
+        assert_eq!(items, "one hundred and sixty-seven")
+    }
+
+    #[test]
+    fn sixty_seven_thousand_and_three() {
+        let items: String = int_to_words(67003);
+        assert_eq!(items, "sixty-seven thousand and three")
+    }
+
+    #[test]
+    fn sixty_seven_thousand_four_hundred_and_ninety_nine() {
+        let items: String = int_to_words(67499);
+        assert_eq!(items, "sixty-seven thousand four hundred and ninety-nine")
+    }
 }
