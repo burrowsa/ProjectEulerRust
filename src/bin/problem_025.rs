@@ -26,11 +26,11 @@ use project_euler_solutions::series::fib::fibonacci;
 
 fn index_of_first_n_digit_term(n: u32) -> usize {
     let digits = 10.to_biguint().unwrap().pow(n - 1);
-    return fibonacci::<BigUint>()
+    fibonacci::<BigUint>()
         .enumerate()
         .find(|(_, x)| *x >= digits)
         .unwrap()
-        .0;
+        .0
 }
 
 #[cfg(test)]

@@ -12,9 +12,9 @@ use project_euler_solutions::numbers::int_to_words;
 // numbers is in compliance with British usage.
 
 fn number_letter_counts(n: usize) -> usize {
-    return (1..=n)
-        .map(|i| int_to_words(i).replace(" ", "").replace("-", "").len())
-        .sum::<usize>();
+    (1..=n)
+        .map(|i| int_to_words(i).replace(' ', "").replace('-', "").len())
+        .sum::<usize>()
 }
 
 #[cfg(test)]

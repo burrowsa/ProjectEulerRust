@@ -13,7 +13,7 @@ fn nth_prime(n: usize) -> u64 {
             n_primes += 1;
         }
     }
-    return i;
+    i
 }
 
 #[cfg(test)]

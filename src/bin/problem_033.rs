@@ -18,7 +18,7 @@ fn is_curious_frac((n, d): &(usize, usize)) -> bool {
     }
 
     let frac = n.to_f64().unwrap() / d.to_f64().unwrap();
-    return (n % 10 == d % 10
+    (n % 10 == d % 10
         && (frac - (n / 10).to_f64().unwrap() / (d / 10).to_f64().unwrap()).abs() <= f64::EPSILON)
         || (n % 10 == d / 10
             && (frac - (n / 10).to_f64().unwrap() / (d % 10).to_f64().unwrap()).abs()
@@ -28,14 +28,14 @@ fn is_curious_frac((n, d): &(usize, usize)) -> bool {
                 <= f64::EPSILON)
         || (n / 10 == d / 10
             && (frac - (n % 10).to_f64().unwrap() / (d % 10).to_f64().unwrap()).abs()
-                <= f64::EPSILON);
+                <= f64::EPSILON)
 }
 
 fn problem_033() -> (usize, usize) {
-    return (10..100)
+    (10..100)
         .cartesian_product(10..100)
         .filter(is_curious_frac)
-        .fold((1, 1), |(n1, d1), (n2, d2)| (n1 * n2, d1 * d2));
+        .fold((1, 1), |(n1, d1), (n2, d2)| (n1 * n2, d1 * d2))
 }
 
 fn main() {

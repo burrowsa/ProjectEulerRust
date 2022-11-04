@@ -5,11 +5,7 @@ use project_euler_solutions::factors::{factors, is_prime};
 // What is the largest prime factor of the number 600851475143 ?
 
 fn largest_prime_factor(n: &u64) -> u64 {
-    return factors(n)
-        .map(|(i, _)| i)
-        .filter(|i| is_prime(i))
-        .max()
-        .unwrap();
+    factors(n).map(|(i, _)| i).filter(is_prime).max().unwrap()
 }
 
 #[cfg(test)]

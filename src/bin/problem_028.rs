@@ -28,11 +28,11 @@ impl Iterator for Spiral {
         }
         self.n += self.step;
         self.diagonals += 1;
-        return if n <= self.size * self.size {
+        if n <= self.size * self.size {
             Some(n)
         } else {
             None
-        };
+        }
     }
 }
 

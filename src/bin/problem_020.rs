@@ -17,7 +17,7 @@ fn factorial_digit_sum(n: u32) -> u32 {
         result *= i.to_biguint().unwrap();
     }
 
-    return sum_digits::<BigUint, u32>(result);
+    sum_digits::<BigUint, u32>(result)
 }
 
 #[cfg(test)]

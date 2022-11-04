@@ -1,3 +1,5 @@
+#![allow(clippy::zero_prefixed_literal)]
+
 use std::cmp::max;
 
 // Largest product in a grid
@@ -86,7 +88,7 @@ fn max_product_n_adjacent_numbers(grid: &[&[i32]], n: usize) -> i32 {
             }
         }
     }
-    return mx;
+    mx
 }
 
 fn problem_011() -> i32 {

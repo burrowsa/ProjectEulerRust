@@ -18,8 +18,8 @@ fn problem_022() -> u64 {
     let contents = fs::read_to_string(file_path).unwrap();
 
     return contents
-        .split(",")
-        .map(|i| i.strip_prefix("\"").unwrap().strip_suffix("\"").unwrap())
+        .split(',')
+        .map(|i| i.strip_prefix('\"').unwrap().strip_suffix('\"').unwrap())
         .sorted()
         .enumerate()
         .map(|(i, name)| {

@@ -9,11 +9,11 @@
 fn brute_force(mx: u32) -> u32 {
     use project_euler_solutions::series::fib::fibonacci;
 
-    return fibonacci::<u32>()
+    fibonacci::<u32>()
         .skip(2)
         .take_while(|i| i <= &mx)
         .filter(|i| i % 2 == 0)
-        .sum();
+        .sum()
 }
 
 struct EvenFibonacci {
@@ -39,7 +39,7 @@ fn even_fibonacci() -> EvenFibonacci {
 }
 
 fn three_times_faster(mx: u32) -> u32 {
-    return even_fibonacci().take_while(|i| i <= &mx).sum();
+    even_fibonacci().take_while(|i| i <= &mx).sum()
 }
 
 #[cfg(test)]

@@ -16,10 +16,10 @@ fn is_palindromic_dec(i: &u32) -> bool {
 }
 
 fn problem_036() -> u32 {
-    return (1..1000000)
+    (1..1000000)
         .filter(is_palindromic_dec)
         .filter(is_palindromic_bin)
-        .sum::<u32>();
+        .sum::<u32>()
 }
 
 fn main() {

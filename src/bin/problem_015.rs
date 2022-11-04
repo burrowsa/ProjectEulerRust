@@ -9,9 +9,9 @@ use memoize::memoize;
 fn count_paths_impl(state: (i64, i64)) -> i64 {
     let (r, d) = state;
     if r == 0 || d == 0 {
-        return 1;
+        1
     } else {
-        return if r > 0 {
+        (if r > 0 {
             count_paths_impl((r - 1, d))
         } else {
             0
@@ -19,7 +19,7 @@ fn count_paths_impl(state: (i64, i64)) -> i64 {
             count_paths_impl((r, d - 1))
         } else {
             0
-        };
+        })
     }
 }
 

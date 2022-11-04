@@ -18,14 +18,14 @@ use project_euler_solutions::series::squares::sum_first_n_squares;
 fn brute_force(n: i64) -> (i64, i64, i64) {
     let sum_nums_sq = (1..=n).sum::<i64>().pow(2);
     let sum_sqs = (1..=n).map(|i| i * i).sum::<i64>();
-    return (sum_nums_sq, sum_sqs, sum_nums_sq - sum_sqs);
+    (sum_nums_sq, sum_sqs, sum_nums_sq - sum_sqs)
 }
 
 fn algebraic_solution(n: i64) -> (i64, i64, i64) {
     let sum_nums = sum_n_terms_ap(&n, &1, &1);
     let sum_nums_sq = sum_nums * sum_nums;
     let sum_sqs = sum_first_n_squares(n);
-    return (sum_nums_sq, sum_sqs, sum_nums_sq - sum_sqs);
+    (sum_nums_sq, sum_sqs, sum_nums_sq - sum_sqs)
 }
 
 #[cfg(test)]

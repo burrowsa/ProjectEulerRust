@@ -8,7 +8,7 @@ use project_euler_solutions::misc::digits;
 // Note: As 1! = 1 and 2! = 2 are not sums they are not included.
 
 fn sum_fac_digits(n: u64) -> u64 {
-    return digits(n).map(|i| (1..i + 1).product::<u64>()).sum();
+    digits(n).map(|i| (1..i + 1).product::<u64>()).sum()
 }
 
 #[cfg(test)]

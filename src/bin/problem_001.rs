@@ -1,9 +1,9 @@
 use itertools::Itertools;
 use num::ToPrimitive;
+use num_traits::identities::{One, Zero};
+use num_traits::NumOps;
 use project_euler_solutions::series::ap::sum_n_terms_ap;
 use std::collections::HashSet;
-use num_traits::NumOps;
-use num_traits::identities::{One, Zero};
 
 // Multiples of 3 or 5
 // If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -21,14 +21,14 @@ fn brute_force(n: u32, factors: &[u32]) -> u32 {
             }
         }
     }
-    return sum;
+    sum
 }
 
 fn sum_multiples_of_i_less_than_n<T>(n: T, i: T) -> T
 where
     T: NumOps + Copy + One + Zero,
 {
-    return sum_n_terms_ap(&((n - T::one()) / i + T::one()), &T::zero(), &i);
+    sum_n_terms_ap(&((n - T::one()) / i + T::one()), &T::zero(), &i)
 }
 
 fn remove_multiples(numbers: &[u32]) -> Vec<u32> {
@@ -42,7 +42,7 @@ fn remove_multiples(numbers: &[u32]) -> Vec<u32> {
             out.push(*i);
         }
     }
-    return out;
+    out
 }
 
 fn combined_factors(numbers: &[u32]) -> HashSet<i64> {
@@ -60,18 +60,18 @@ fn combined_factors(numbers: &[u32]) -> HashSet<i64> {
         }
     }
 
-    return out;
+    out
 }
 
 fn algebraic_solution(n: u32, factors: &[u32]) -> u32 {
     let mut sum = 0;
-    for i in combined_factors(&factors) {
+    for i in combined_factors(factors) {
         sum += i.signum()
             * sum_multiples_of_i_less_than_n(n, i.abs().to_u32().unwrap())
                 .to_i64()
                 .unwrap();
     }
-    return sum.to_u32().unwrap();
+    sum.to_u32().unwrap()
 }
 
 #[cfg(test)]

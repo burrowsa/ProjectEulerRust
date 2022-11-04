@@ -19,7 +19,7 @@ fn number_of_ways_to_make(n: usize) -> u32 {
             ways[i] += ways[i - coin];
         }
     }
-    return ways[n];
+    ways[n]
 }
 
 fn main() {
@@ -52,17 +52,17 @@ mod tests {
 
     #[test]
     fn test_number_of_ways_to_make_6() {
-        assert_eq!(number_of_ways_to_make(6), 5); // 51 222 2211 21111 111111 
+        assert_eq!(number_of_ways_to_make(6), 5); // 51 222 2211 21111 111111
     }
 
     #[test]
     fn test_number_of_ways_to_make_7() {
-        assert_eq!(number_of_ways_to_make(7), 6); // 511 52 2221 22111 211111 1111111 
+        assert_eq!(number_of_ways_to_make(7), 6); // 511 52 2221 22111 211111 1111111
     }
 
     #[test]
     fn test_number_of_ways_to_make_8() {
-        assert_eq!(number_of_ways_to_make(8), 7); // 5111 521 2222 22211 221111 2111111 11111111 
+        assert_eq!(number_of_ways_to_make(8), 7); // 5111 521 2222 22211 221111 2111111 11111111
     }
 
     #[test]

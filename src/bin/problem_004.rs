@@ -8,15 +8,14 @@ use std::ops::RangeInclusive;
 fn is_palindrome(i: u32) -> bool {
     let s = i.to_string();
     let r = s.chars().rev().collect::<String>();
-    return s == r;
+    s == r
 }
 
 fn largest_palindromic_product(r: RangeInclusive<u32>) -> (u32, u32) {
     (r.clone())
         .rev()
         .cartesian_product(r.rev())
-        .filter(|(i, j)| (i > j) && is_palindrome(i * j))
-        .next()
+        .find(|(i, j)| (i > j) && is_palindrome(i * j))
         .unwrap()
 }
 

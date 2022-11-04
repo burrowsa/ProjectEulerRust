@@ -21,7 +21,7 @@ fn _totup_primes(i: &u64, primes: &mut HashMap<u64, u64>) {
 fn totup_primes(i: &u64) -> HashMap<u64, u64> {
     let mut result = HashMap::new();
     _totup_primes(i, &mut result);
-    return result;
+    result
 }
 
 fn merge_primes(p1: &mut HashMap<u64, u64>, p2: HashMap<u64, u64>) {
@@ -39,12 +39,12 @@ fn simplify(n: &u64) -> Vec<u64> {
     }
 
     let mut result = Vec::new();
-    for (k,v) in primes {
+    for (k, v) in primes {
         for _ in 0..v {
             result.push(k);
         }
     }
-    return result;
+    result
 }
 
 #[cfg(test)]

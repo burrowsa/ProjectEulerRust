@@ -62,7 +62,7 @@ static NUMBER: [i64; 1000] = [
     5, 2, 9, 6, 3, 4, 5, 0,
 ];
 
-fn largest_product_of_n_adjacent_digits<'a>(number: &'a [i64], n: usize) -> (i64, &'a [i64]) {
+fn largest_product_of_n_adjacent_digits(number: &[i64], n: usize) -> (i64, &[i64]) {
     return sorted(number.windows(n).map(|i| (i.iter().product(), i)))
         .rev()
         .next()

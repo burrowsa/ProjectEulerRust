@@ -11,7 +11,7 @@
 // Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
 fn nth_digit_powers(n: u32) -> u32 {
-    return (2..999999u32)
+    (2..999999u32)
         .filter(|i| {
             *i == ((i % 10).pow(n)
                 + ((i / 10) % 10).pow(n)
@@ -21,7 +21,7 @@ fn nth_digit_powers(n: u32) -> u32 {
                 + ((i / 100000) % 10).pow(n)
                 + ((i / 1000000) % 10).pow(n))
         })
-        .sum::<u32>();
+        .sum::<u32>()
 }
 
 #[cfg(test)]

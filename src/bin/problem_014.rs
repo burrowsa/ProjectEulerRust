@@ -18,10 +18,10 @@ use project_euler_solutions::series::collatz::collatz;
 // NOTE: Once the chain starts the terms are allowed to go above one million.
 
 fn longest_chain(n: usize) -> (usize, usize) {
-    return (1..n)
+    (1..n)
         .map(|start| (start, collatz(start).count()))
         .max_by_key(|(_, chain_len)| *chain_len)
-        .unwrap();
+        .unwrap()
 }
 
 fn main() {

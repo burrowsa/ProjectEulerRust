@@ -13,7 +13,7 @@ fn sum_primes_below_n(n: u64) -> u64 {
         }
         i += if i > 2 { 2 } else { 1 };
     }
-    return sum;
+    sum
 }
 
 #[cfg(test)]

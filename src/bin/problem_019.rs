@@ -21,10 +21,10 @@ fn problem_019() -> usize {
     let end = Utc.ymd(2000, 12, 31);
     let mut sundays = 0;
     while i <= end {
-        match i.weekday() {
-            Weekday::Sun => sundays += 1,
-            _ => (),
+        if i.weekday() == Weekday::Sun {
+            sundays += 1
         }
+
         i += match i.month() {
             1 => Duration::days(31),
             2 => {
@@ -47,7 +47,7 @@ fn problem_019() -> usize {
             _ => Duration::days(0),
         };
     }
-    return sundays;
+    sundays
 }
 
 fn main() {

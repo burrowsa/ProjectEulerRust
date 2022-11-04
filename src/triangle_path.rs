@@ -21,29 +21,29 @@ pub struct Triangle<'a> {
 
 impl<'a> Triangle<'a> {
     pub fn new(tree: &'a [&'a [i64]]) -> Triangle<'a> {
-        return Triangle {
+        Triangle {
             tree,
             i_offset: 0,
             j_offset: 0,
             cache: Rc::new(RefCell::new(HashMap::new())),
-        };
+        }
     }
 
     fn get(&self, i: usize, j: usize) -> i64 {
-        return self.tree[self.i_offset + i][self.j_offset + j];
+        self.tree[self.i_offset + i][self.j_offset + j]
     }
 
     fn slice(&self, i: usize, j: usize) -> Triangle {
-        return Triangle {
+        Triangle {
             tree: self.tree,
             i_offset: self.i_offset + i,
             j_offset: self.j_offset + j,
             cache: Rc::clone(&self.cache),
-        };
+        }
     }
 
     fn len(&self) -> usize {
-        return max(self.tree.len() - self.i_offset, 0);
+        max(self.tree.len() - self.i_offset, 0)
     }
 
     fn _print(&self) {
@@ -61,7 +61,7 @@ impl<'a> Triangle<'a> {
     }
 }
 
-pub fn max_sum_through_triangle<'a>(t: Triangle<'a>) -> i64 {
+pub fn max_sum_through_triangle(t: Triangle) -> i64 {
     let key = (t.i_offset, t.j_offset);
     if !t.cache.borrow().contains_key(&key) {
         if t.len() > 0 {
@@ -75,5 +75,5 @@ pub fn max_sum_through_triangle<'a>(t: Triangle<'a>) -> i64 {
             t.cache.borrow_mut().insert(key, 0);
         }
     }
-    return *t.cache.borrow().get(&key).unwrap();
+    *t.cache.borrow().get(&key).unwrap()
 }

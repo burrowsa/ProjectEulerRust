@@ -22,8 +22,7 @@ use project_euler_solutions::series::triangles::triangles;
 
 fn first_triangular_num_with_n_divisors(n: usize) -> u32 {
     triangles()
-        .filter(|i| factors(&i.to_u64().unwrap()).count() * 2 > n)
-        .next()
+        .find(|i| factors(&i.to_u64().unwrap()).count() * 2 > n)
         .unwrap()
 }
 

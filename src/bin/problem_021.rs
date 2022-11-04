@@ -11,11 +11,11 @@ use project_euler_solutions::factors::sum_proper_divisors;
 
 fn is_amicable(n: &u64) -> bool {
     let sum_proper_divisors_n = sum_proper_divisors(*n);
-    return sum_proper_divisors_n != *n && sum_proper_divisors(sum_proper_divisors_n) == *n;
+    sum_proper_divisors_n != *n && sum_proper_divisors(sum_proper_divisors_n) == *n
 }
 
 fn problem_021() -> u64 {
-    return (1..10000).filter(is_amicable).sum::<u64>();
+    (1..10000).filter(is_amicable).sum::<u64>()
 }
 
 fn main() {

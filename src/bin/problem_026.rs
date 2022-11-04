@@ -53,15 +53,15 @@ fn recurrence_length(n: i64, debug: bool) -> usize {
         }
         println!(" [{}-digit recurring cycle]", recurrences);
     }
-    return recurrences;
+    recurrences
 }
 
 fn problem_026() -> i64 {
-    return (1..1000)
+    (1..1000)
         .map(|n| (n, recurrence_length(n, false)))
         .max_by(|(_, r1), (_, r2)| r1.cmp(r2))
         .unwrap()
-        .0;
+        .0
 }
 
 fn main() {

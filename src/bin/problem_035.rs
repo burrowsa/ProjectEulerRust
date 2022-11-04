@@ -26,7 +26,7 @@ impl Iterator for RotDigits {
                 self.next = if next == self.first { None } else { Some(next) };
             }
         };
-        return ret;
+        ret
     }
 }
 
@@ -40,7 +40,7 @@ fn rotate_digits(i: u32) -> RotDigits {
 }
 
 fn is_circular_prime(i: &u32) -> bool {
-    return rotate_digits(*i).all(|x| is_prime(&x.to_u64().unwrap()));
+    rotate_digits(*i).all(|x| is_prime(&x.to_u64().unwrap()))
 }
 
 #[cfg(test)]

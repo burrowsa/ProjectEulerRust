@@ -8,7 +8,7 @@ impl Iterator for Collatz {
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.stop {
-            return None;
+            None
         } else {
             let r = self.next;
             if r == 1 {
@@ -20,7 +20,7 @@ impl Iterator for Collatz {
                     3 * self.next + 1
                 };
             }
-            return Some(r);
+            Some(r)
         }
     }
 }

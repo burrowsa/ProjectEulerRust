@@ -9,7 +9,7 @@ use project_euler_solutions::misc::sum_digits;
 fn sum_digits_two_to_power_n(n: u32) -> u32 {
     let two = 2u32.to_biguint().unwrap();
     let two_to_n = two.pow(n);
-    return sum_digits::<BigUint, u32>(two_to_n);
+    sum_digits::<BigUint, u32>(two_to_n)
 }
 
 #[cfg(test)]

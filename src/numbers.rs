@@ -33,11 +33,11 @@ fn _int_to_words(x: usize) -> String {
         }
     }
 
-    return result.join("");
+    result.join("")
 }
 
 pub fn int_to_words(x: usize) -> String {
-    return match x {
+    match x {
         0 => String::from("zero"),
         1 => String::from("one"),
         2 => String::from("two"),
@@ -67,7 +67,7 @@ pub fn int_to_words(x: usize) -> String {
         80 => String::from("eighty"),
         90 => String::from("ninety"),
         other => _int_to_words(other),
-    };
+    }
 }
 
 #[cfg(test)]

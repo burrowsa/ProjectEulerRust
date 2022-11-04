@@ -11,7 +11,7 @@ use project_euler_solutions::factors::factors;
 // HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
 
 fn problem_032() -> u64 {
-    return (4000..8000)
+    (4000..8000)
         .filter(|n| {
             factors(n).any(|(i, j)| {
                 i.to_string()
@@ -23,7 +23,7 @@ fn problem_032() -> u64 {
                     == "123456789"
             })
         })
-        .sum::<u64>();
+        .sum::<u64>()
 }
 
 fn main() {

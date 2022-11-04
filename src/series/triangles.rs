@@ -9,7 +9,7 @@ impl Iterator for Triangles {
     fn next(&mut self) -> Option<Self::Item> {
         self.i += 1;
         self.s += self.i;
-        return Some(self.s);
+        Some(self.s)
     }
 }
 

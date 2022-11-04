@@ -8,13 +8,13 @@ impl Iterator for Digits {
     type Item = u64;
 
     fn next(&mut self) -> Option<Self::Item> {
-        return if self.i != 0 {
+        if self.i != 0 {
             let ret = self.i % 10;
-            self.i = self.i / 10;
+            self.i /= 10;
             Some(ret)
         } else {
             None
-        };
+        }
     }
 }
 
@@ -28,11 +28,10 @@ where
     O: Sum<O> + FromStr,
     <O as FromStr>::Err: Debug,
 {
-    return i
-        .to_string()
+    i.to_string()
         .chars()
         .map(|x| x.to_string().parse::<O>().unwrap())
-        .sum::<O>();
+        .sum::<O>()
 }
 
 #[cfg(test)]

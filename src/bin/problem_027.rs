@@ -37,24 +37,24 @@ impl Iterator for Remarkable {
         let n = self.n.to_i64().unwrap();
         self.n += 1;
         let result = n * n + self.a * n + self.b;
-        return if is_prime(&result.abs().to_u64().unwrap()) {
+        if is_prime(&result.abs().to_u64().unwrap()) {
             Some(result)
         } else {
             None
-        };
+        }
     }
 }
 
 fn num_remarkable_primes(a: i64, b: i64) -> usize {
-    return Remarkable { a, b, n: 0 }.count();
+    Remarkable { a, b, n: 0 }.count()
 }
 
 fn problem_027() -> ((i64, i64), usize) {
-    return (-999..=999)
+    (-999..=999)
         .cartesian_product(-1000..=1000)
         .map(|(a, b)| ((a, b), num_remarkable_primes(a, b)))
         .max_by_key(|i| i.1)
-        .unwrap();
+        .unwrap()
 }
 
 fn main() {

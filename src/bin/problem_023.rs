@@ -28,7 +28,7 @@ fn problem_023() -> u64 {
         .unique()
         .sum::<u64>();
 
-    return (1..28124).sum::<u64>() - sum_numbers_sum_of_two_abundant_numbers;
+    (1..28124).sum::<u64>() - sum_numbers_sum_of_two_abundant_numbers
 }
 
 fn main() {

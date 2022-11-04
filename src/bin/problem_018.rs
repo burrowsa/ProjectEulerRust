@@ -1,3 +1,5 @@
+#![allow(clippy::zero_prefixed_literal)]
+
 use project_euler_solutions::tri;
 use project_euler_solutions::triangle_path::{max_sum_through_triangle, Triangle};
 // Maximum path sum I
